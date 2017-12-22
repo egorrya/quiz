@@ -304,7 +304,7 @@ button:-moz-focusring {
 .quiz .quiz__btn {
   margin-right: 30px;
   margin-bottom: 20px;
-  padding: 12px 30px;
+  padding: 8px 30px;
   cursor: pointer;
   transition: all 1450ms cubic-bezier(0.19, 1, 0.22, 1);
   text-transform: uppercase;
@@ -314,7 +314,7 @@ button:-moz-focusring {
 }
 .quiz .quiz__btn p {
   font-family: 'OpenGost Type A TT';
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }
 .quiz .quiz__btn:hover,
 .quiz .quiz__btn:active {
@@ -376,6 +376,10 @@ button:-moz-focusring {
   .quiz .quiz__btn {
     margin-bottom: 30px;
     padding: 10px 35px;
+  }
+
+  .quiz .quiz__btn p {
+    font-size: 1.5rem;
   }
 
   .quiz .quiz__progress {
