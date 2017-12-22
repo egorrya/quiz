@@ -103,20 +103,20 @@ function end () {
 
 var pixelwave = new PixelWave({
   canvasTop: 0,    
-  speedIn: .7,
-  speedOut: .8,
+  speedIn: .8,
+  speedOut: .9,
   color: '#000000'      
 });
 
 document.getElementById('guess0').addEventListener('click', function() {
-  pixelwave.start(start, middle, end);
+  pixelwave.start();
 })
 document.getElementById('guess1').addEventListener('click', function() {
-  pixelwave.start(start, middle, end);
+  pixelwave.start();
 })
 document.getElementById('guess2').addEventListener('click', function() {
-  pixelwave.start(start, middle, end);
+  pixelwave.start();
 })
 document.getElementById('guess3').addEventListener('click', function() {
-  pixelwave.start(start, middle, end);
+  pixelwave.start();
 })
