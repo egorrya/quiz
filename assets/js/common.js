@@ -43,21 +43,16 @@ var QuizUI = {
   displayTest: function() {
     var testHTML = "<h1>ДА! Он Крутой</h1>";
 
-    // Display current question
-    
+    // Display question
+
     testHTML += '<h2 id="question">' + quiz.getCurrentQuestion().text + '</h2>';
 
-    // Display buttons for choises()
-    
     var choices = quiz.getCurrentQuestion().choices;
     for(var i = 0; i < choices.length; i++) {
-      testHTML += '<button id="guess' + i + '" class="quiz__btn"><p id="choice' + i + '"></p></button>';
+      testHTML += '<button id="guess' + i + '" class="quiz__btn"><p id="choice' + i +'"></p></button>';
     }
 
-    // Display progress
-
-    var currentQuestionNumber = quiz.currentQuestionIndex + 1;
-    testHTML += '<p class="quiz__progress">Вопрос ' + currentQuestionNumber + ' из ' + quiz.questions.length'</p>';
+    testHTML += '<p id="progress" class="quiz__progress">Question x of y</p>';
 
     this.populateIdWithHTML("quiz", testHTML);
   },
@@ -79,10 +74,16 @@ var QuizUI = {
     this.populateIdWithHTML("quiz", gameOverHTML);
   },
 
+  displayProgress: function() {
+    var currentQuestionNumber = quiz.currentQuestionIndex + 1;
+    this.populateIdWithHTML("progress", "Вопрос " + currentQuestionNumber + " из " + quiz.questions.length);
+  },
+
   populateIdWithHTML: function(id, text) {
     var element = document.getElementById(id);
     element.innerHTML = text;
   },
+
   guessHandler: function(id, guess) {
     var button = document.getElementById(id);
     button.onclick = function() {
