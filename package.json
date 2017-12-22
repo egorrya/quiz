@@ -1,0 +1,42 @@
+{
+  "name": "quiz",
+  "version": "0.1.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.0",
+    "browser-sync": "^2.17.0",
+    "css-mqpacker": "^6.0.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-less": "^3.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-svgstore": "^6.1.0",
+    "gulp-uncss": "^1.0.6",
+    "run-sequence": "^1.2.2"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "start": "npm run build && gulp serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faynco/quiz.git"
+  },
+  "author": "Egor Rya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faynco/quiz/issues"
+  },
+  "homepage": "https://github.com/faynco/quiz#readme"
+}

@@ -1,0 +1,72 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Beer money';
+
+    src: url(../fonts/beermoney.ttf);
+}
+
+@font-face {
+    font-family: 'OpenGost Type A TT';
+
+    src: url(../fonts/OpenGostTypeA-Regular.ttf);
+}
+
+.quiz {
+    padding: 1% 0;
+
+    text-align: center;
+
+    .container-fluid();
+
+    h1 {
+        font-family: 'Beer money';
+        font-size: 7rem;
+
+        margin-bottom: 100px;
+
+        color: #111;
+    }
+
+    h2 {
+        font-family: 'OpenGost Type A TT';
+        font-size: 2rem;
+
+        margin-bottom: 60px;
+    }
+    
+
+    .quiz__btn {
+        margin-right: 30px;
+        margin-bottom: 30px;
+        padding: 12px 30px;
+
+        cursor: pointer;
+
+        border: 2px solid #000;
+        outline: none;
+        background-color: #fff;
+
+        p {
+            font-family: 'OpenGost Type A TT';
+            font-size: 1.7rem;
+        }
+
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+
+    .quiz__progress {
+        font-family: 'OpenGost Type A TT';
+        font-size: 1.3rem;
+
+        margin-top: 50px;
+    }
+}

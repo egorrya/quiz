@@ -1,0 +1,38 @@
+.clearfix() {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.container() {
+	width: 320px;
+	margin: 0 auto;
+
+	@media @t-width {
+		width: 640px;
+	}
+
+	@media @d-width {
+		width: 960px;
+	}
+}
+
+.container-fluid() {
+	width: auto;
+
+	@media @t-width {
+		width: 88%;		/* 640px / 768px */
+		max-width: 960px;
+		margin: 0 auto;
+	}
+}
+
+.no-outline() {
+	outline: none;
+	background: transparent;
+	&::before {
+		display: none;
+	}
+}
