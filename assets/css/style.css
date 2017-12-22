@@ -293,13 +293,13 @@ button:-moz-focusring {
 .quiz h1 {
   font-family: 'Beer money';
   font-size: 3.8rem;
-  margin-bottom: 100px;
+  margin-bottom: 45px;
   color: #111;
 }
 .quiz h2 {
   font-family: 'OpenGost Type A TT';
   font-size: 1.8rem;
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 }
 .quiz .quiz__btn {
   margin-right: 30px;
@@ -324,12 +324,13 @@ button:-moz-focusring {
 .quiz .quiz__progress {
   font-family: 'OpenGost Type A TT';
   font-size: 1.3rem;
-  margin-top: 50px;
-  margin-bottom: 70px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .quiz .quiz__me {
   font-family: 'OpenGost Type A TT';
   font-size: 1.5rem;
+  margin-top: 50px;
   margin-bottom: 60px;
 }
 .quiz .quiz__me a {
@@ -365,6 +366,7 @@ button:-moz-focusring {
 
   .quiz h1 {
     font-size: 5rem;
+    margin-bottom: 60px;
   }
 
   .quiz h2 {
@@ -375,16 +377,35 @@ button:-moz-focusring {
     margin-bottom: 30px;
     padding: 10px 35px;
   }
+
+  .quiz .quiz__progress {
+    margin-top: 40px;
+  }
+
+  .quiz .quiz__me {
+    margin-top: 70px;
+  }
 }
 @media (min-width: 1200px) {
 
   .quiz h1 {
     font-size: 6rem;
     margin-top: 7vh;
+    margin-bottom: 70px;
+  }
+
+  .quiz h2 {
+    font-size: 2rem;
+    margin-bottom: 60px;
   }
 
   .quiz .quiz__btn {
+    margin-bottom: 60px;
     padding: 12px 37px;
+  }
+
+  .quiz .quiz__me {
+    margin-top: 100px;
   }
 }
 @media (max-width: 767px) {
