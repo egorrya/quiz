@@ -303,7 +303,7 @@ button:-moz-focusring {
 }
 .quiz .quiz__btn {
   margin-right: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 12px 30px;
   cursor: pointer;
   transition: all 1450ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -372,6 +372,7 @@ button:-moz-focusring {
   }
 
   .quiz .quiz__btn {
+    margin-bottom: 30px;
     padding: 10px 35px;
   }
 }
