@@ -51,9 +51,10 @@ var QuizUI = {
     }
   },
   displayScore: function() {
+    var myWebSite = "https://faynco.github.io";
     var gameOverHTML = "<h1>Game Over</h1>";
     gameOverHTML += "<h2> Твой счет: " + quiz.score + " из " + quiz.questions.length + "</h2>";
-    gameOverHTML += '<h3 id="me" class="quiz__me">Этот тест был разработан <a href="https://faynco.github.io">этим парнем</a> </h3>';
+    gameOverHTML += '<h3 id="me" class="quiz__me">Этот тест был разработан <a href=' + myWebSite + '>этим парнем</a> </h3>';
     this.populateIdWithHTML("quiz", gameOverHTML);
   },
 
