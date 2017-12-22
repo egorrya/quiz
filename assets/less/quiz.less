@@ -47,6 +47,7 @@
         padding: 12px 30px;
 
         cursor: pointer;
+        transition: all 1450ms cubic-bezier(.19, 1, .22, 1);
         text-transform: uppercase;
 
         border: 2px solid #000;
@@ -58,7 +59,8 @@
             font-size: 1.7rem;
         }
 
-        &:hover {
+        &:hover,
+        &:active {
             color: #fff;
             background-color: #000;
         }
@@ -79,22 +81,32 @@
         margin-bottom: 60px;
 
         a {
-            color: #000;
             animation-duration: 2.5s;
+
+            color: #000;
 
             &:hover {
                 animation-name: color;
                 animation-duration: .5s;
-                color: rgba(22, 160, 133, 0.8);
+
+                color: rgba(22, 160, 133, .8);
             }
         }
     }
 }
 @keyframes color {
-    0% {color:#000;}
-    25% {color:red;}
-    75% {color:blue;}
-    100% {color: rgba(22, 160, 133, 0.8);}
+    0% {
+        color: #000;
+    }
+    25% {
+        color: red;
+    }
+    75% {
+        color: blue;
+    }
+    100% {
+        color: rgba(22, 160, 133, .8);
+    }
 }
 @media @m-width-only {
     .quiz {

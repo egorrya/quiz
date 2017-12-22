@@ -306,6 +306,7 @@ button:-moz-focusring {
   margin-bottom: 30px;
   padding: 12px 30px;
   cursor: pointer;
+  transition: all 1450ms cubic-bezier(0.19, 1, 0.22, 1);
   text-transform: uppercase;
   border: 2px solid #000;
   outline: none;
@@ -315,7 +316,8 @@ button:-moz-focusring {
   font-family: 'OpenGost Type A TT';
   font-size: 1.7rem;
 }
-.quiz .quiz__btn:hover {
+.quiz .quiz__btn:hover,
+.quiz .quiz__btn:active {
   color: #fff;
   background-color: #000;
 }
@@ -331,8 +333,8 @@ button:-moz-focusring {
   margin-bottom: 60px;
 }
 .quiz .quiz__me a {
-  color: #000;
   animation-duration: 2.5s;
+  color: #000;
 }
 .quiz .quiz__me a:hover {
   animation-name: color;
