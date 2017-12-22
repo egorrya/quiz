@@ -34,14 +34,34 @@ var QuizUI = {
     if (quiz.hasEnded()) {
       this.displayScore();
     } else {
-      this.displayQuestion();
+      this.displayTest();
       this.displayChoices();
       this.displayProgress();
     }
   },
-  displayQuestion: function() {
-    this.populateIdWithHTML("question", quiz.getCurrentQuestion().text);
+
+  displayTest: function() {
+    var testHTML = "<h1>ДА! Он Крутой</h1>";
+
+    // Display current question
+    
+    testHTML += '<h2 id="question">' + quiz.getCurrentQuestion().text + '</h2>';
+
+    // Display buttons for choises()
+    
+    var choices = quiz.getCurrentQuestion().choices;
+    for(var i = 0; i < choices.length; i++) {
+      testHTML += '<button id="guess' + i + '" class="quiz__btn"><p id="choice' + i + '"></p></button>';
+    }
+
+    // Display progress
+
+    var currentQuestionNumber = quiz.currentQuestionIndex + 1;
+    testHTML += '<p class="quiz__progress">Вопрос ' + currentQuestionNumber + ' из ' + quiz.questions.length'</p>';
+
+    this.populateIdWithHTML("quiz", testHTML);
   },
+
   displayChoices: function() {
     var choices = quiz.getCurrentQuestion().choices;
 
@@ -50,6 +70,7 @@ var QuizUI = {
       this.guessHandler("guess" + i, choices[i]);
     }
   },
+
   displayScore: function() {
     var myWebSite = "https://faynco.github.io";
     var gameOverHTML = "<h1>Game Over</h1>";
@@ -68,17 +89,13 @@ var QuizUI = {
       quiz.guess(guess);
       QuizUI.displayNext();
     }
-  },
-
-  displayProgress: function() {
-    var currentQuestionNumber = quiz.currentQuestionIndex + 1;
-    this.populateIdWithHTML("progress", "Вопрос " + currentQuestionNumber + " из " + quiz.questions.length);
   }
 };
 
 // Create Questions
 var questions = [
-new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА", "НЕ"], "ПОРВУ ЗА ПУТИНА"),
+new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА", "НЕ", "НЕ", "НЕ"], "ПОРВУ ЗА ПУТИНА"),
+new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА", "НЕ", "НЕ"], "ПОРВУ ЗА ПУТИНА"),
 ];
 
 // Create Quiz

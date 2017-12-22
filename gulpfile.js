@@ -4,7 +4,7 @@ var gulp = require("gulp"),
 less = require("gulp-less"),
 plumber = require("gulp-plumber"),
 postcss = require("gulp-postcss"),
-uncss = require('gulp-uncss'),
+// uncss = require('gulp-uncss'),
 autoprefixer = require("autoprefixer"),
 mqpacker = require("css-mqpacker"),
 minify = require("gulp-csso"),
@@ -22,9 +22,9 @@ gulp.task("style", function() {
 	gulp.src("assets/less/style.less")
 	.pipe(plumber())
 	.pipe(less())
-	.pipe(uncss({
-		html: ['index.html', '*.html']
-	}))
+	// .pipe(uncss({
+	// 	html: ['index.html', '*.html']
+	// }))
 	.pipe(postcss([
 		autoprefixer({browsers: [
 			"last 1 version",

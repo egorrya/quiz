@@ -34,11 +34,26 @@ var QuizUI = {
     if (quiz.hasEnded()) {
       this.displayScore();
     } else {
-      this.displayQuestion();
+      this.displayTest();
       this.displayChoices();
       this.displayProgress();
     }
   },
+
+  displayTest: function() {
+    var testHTML = "<h1>ДА! Он Крутой/h1>";
+    testHTML += '<h2 id="question">' + quiz.getCurrentQuestion().text + '</h2>';
+
+    testHTML += '<button id="guess0" class="quiz__btn"><p id="choice0"></p></button>';
+    testHTML += '<button id="guess1" class="quiz__btn"><p id="choice1"></p></button>';
+    testHTML += '<button id="guess2" class="quiz__btn"><p id="choice2"></p></button>';
+    testHTML += '<button id="guess3" class="quiz__btn"><p id="choice3"></p></button>';
+
+    testHTML += '<p id="progress" class="quiz__progress">Question x of y</p>';
+
+    this.populateIdWithHTML("quiz", testHTML);
+  },
+  
   displayQuestion: function() {
     this.populateIdWithHTML("question", quiz.getCurrentQuestion().text);
   },
