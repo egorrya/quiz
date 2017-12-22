@@ -74,6 +74,11 @@ h1 {
  * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
  */
 
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
 /**
  * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -287,13 +292,13 @@ button:-moz-focusring {
 }
 .quiz h1 {
   font-family: 'Beer money';
-  font-size: 7rem;
+  font-size: 3.8rem;
   margin-bottom: 100px;
   color: #111;
 }
 .quiz h2 {
   font-family: 'OpenGost Type A TT';
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 60px;
 }
 .quiz .quiz__btn {
@@ -301,6 +306,7 @@ button:-moz-focusring {
   margin-bottom: 30px;
   padding: 12px 30px;
   cursor: pointer;
+  text-transform: uppercase;
   border: 2px solid #000;
   outline: none;
   background-color: #fff;
@@ -310,12 +316,42 @@ button:-moz-focusring {
   font-size: 1.7rem;
 }
 .quiz .quiz__btn:hover {
-  background-color: #ddd;
+  color: #fff;
+  background-color: #000;
 }
 .quiz .quiz__progress {
   font-family: 'OpenGost Type A TT';
   font-size: 1.3rem;
   margin-top: 50px;
+  margin-bottom: 70px;
+}
+.quiz .quiz__me {
+  font-family: 'OpenGost Type A TT';
+  font-size: 1.5rem;
+  margin-bottom: 60px;
+}
+.quiz .quiz__me a {
+  color: #000;
+  animation-duration: 2.5s;
+}
+.quiz .quiz__me a:hover {
+  animation-name: color;
+  animation-duration: .5s;
+  color: rgba(22, 160, 133, 0.8);
+}
+@keyframes color {
+  0% {
+    color: #000;
+  }
+  25% {
+    color: red;
+  }
+  75% {
+    color: blue;
+  }
+  100% {
+    color: rgba(22, 160, 133, 0.8);
+  }
 }
 @media (min-width: 768px) {
 
@@ -323,5 +359,38 @@ button:-moz-focusring {
     width: 88%;/* 640px / 768px */
     max-width: 960px;
     margin: 0 auto;
+  }
+
+  .quiz h1 {
+    font-size: 5rem;
+  }
+
+  .quiz h2 {
+    font-size: 2rem;
+  }
+
+  .quiz .quiz__btn {
+    padding: 10px 35px;
+  }
+}
+@media (min-width: 1200px) {
+
+  .quiz h1 {
+    font-size: 6rem;
+    margin-top: 7vh;
+  }
+
+  .quiz .quiz__btn {
+    padding: 12px 37px;
+  }
+}
+@media (max-width: 767px) {
+
+  .quiz {
+    padding: 1% 30px;
+  }
+
+  .quiz .quiz__btn {
+    width: 100%;
   }
 }

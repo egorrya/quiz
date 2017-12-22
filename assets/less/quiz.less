@@ -27,7 +27,7 @@
 
     h1 {
         font-family: 'Beer money';
-        font-size: 7rem;
+        font-size: 3.8rem;
 
         margin-bottom: 100px;
 
@@ -36,11 +36,10 @@
 
     h2 {
         font-family: 'OpenGost Type A TT';
-        font-size: 2rem;
+        font-size: 1.8rem;
 
         margin-bottom: 60px;
     }
-    
 
     .quiz__btn {
         margin-right: 30px;
@@ -48,6 +47,7 @@
         padding: 12px 30px;
 
         cursor: pointer;
+        text-transform: uppercase;
 
         border: 2px solid #000;
         outline: none;
@@ -59,7 +59,8 @@
         }
 
         &:hover {
-            background-color: #ddd;
+            color: #fff;
+            background-color: #000;
         }
     }
 
@@ -68,5 +69,69 @@
         font-size: 1.3rem;
 
         margin-top: 50px;
+        margin-bottom: 70px;
+    }
+
+    .quiz__me {
+        font-family: 'OpenGost Type A TT';
+        font-size: 1.5rem;
+
+        margin-bottom: 60px;
+
+        a {
+            color: #000;
+            animation-duration: 2.5s;
+
+            &:hover {
+                animation-name: color;
+                animation-duration: .5s;
+                color: rgba(22, 160, 133, 0.8);
+            }
+        }
+    }
+}
+@keyframes color {
+    0% {color:#000;}
+    25% {color:red;}
+    75% {color:blue;}
+    100% {color: rgba(22, 160, 133, 0.8);}
+}
+@media @m-width-only {
+    .quiz {
+        padding: 1% 30px;
+
+        .quiz__btn {
+            width: 100%;
+        }
+    }
+}
+
+@media @t-width {
+    .quiz {
+        h1 {
+            font-size: 5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .quiz__btn {
+            padding: 10px 35px;
+        }
+    }
+}
+
+@media @d-width {
+    .quiz {
+        h1 {
+            font-size: 6rem;
+
+            margin-top: 7vh;
+        }
+
+        .quiz__btn {
+            padding: 12px 37px;
+        }
     }
 }

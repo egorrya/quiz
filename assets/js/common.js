@@ -52,7 +52,8 @@ var QuizUI = {
   },
   displayScore: function() {
     var gameOverHTML = "<h1>Game Over</h1>";
-    gameOverHTML += "<h2> Твой счет: " + quiz.score + "</h2>";
+    gameOverHTML += "<h2> Твой счет: " + quiz.score + " из " + quiz.questions.length + "</h2>";
+    gameOverHTML += '<h3 id="me" class="quiz__me">Этот тест был разработан <a href="https://faynco.github.io">этим парнем</a> </h3>';
     this.populateIdWithHTML("quiz", gameOverHTML);
   },
 
@@ -76,7 +77,7 @@ var QuizUI = {
 
 // Create Questions
 var questions = [
-new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА", "не"], "ПОРВУ ЗА ПУТИНА"),
+new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА", "НЕ"], "ПОРВУ ЗА ПУТИНА"),
 ];
 
 // Create Quiz
