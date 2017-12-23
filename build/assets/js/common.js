@@ -103,7 +103,7 @@ new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА",
 var quiz = new Quiz(questions);
 
 // Display Quiz
-QuizUI.displayIntro();
+QuizUI.displayNext();
 
 // motion
 
