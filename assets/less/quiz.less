@@ -19,7 +19,7 @@
 }
 
 .quiz {
-    padding: 1% 0px;
+    padding: 1% 30px;
 
     text-align: center;
 
@@ -43,8 +43,8 @@
 
     .quiz__btn {
         margin-right: 30px;
-        margin-bottom: 20px;
-        padding: 8px 30px;
+        margin-bottom: 15px;
+        padding: 9px 30px;
 
         cursor: pointer;
         transition: all 1450ms cubic-bezier(.19, 1, .22, 1);
@@ -59,8 +59,7 @@
             font-size: 1.4rem;
         }
 
-        &:hover,
-        &:active {
+        &:hover {
             color: #fff;
             background-color: #000;
         }
@@ -95,6 +94,7 @@
         }
     }
 }
+
 @keyframes color {
     0% {
         color: #000;
@@ -109,10 +109,9 @@
         color: rgba(22, 160, 133, .8);
     }
 }
+
 @media @m-width-only {
     .quiz {
-        padding: 1% 20px;
-
         .quiz__btn {
             width: 100%;
         }
@@ -121,6 +120,8 @@
 
 @media @t-width {
     .quiz {
+        padding: 1% 0px;
+
         h1 {
             font-size: 5rem;
 
@@ -132,7 +133,7 @@
         }
 
         .quiz__btn {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             padding: 10px 35px;
 
             p {
@@ -166,12 +167,12 @@
         }
 
         .quiz__btn {
-            margin-bottom: 60px;
             padding: 12px 37px;
         }
 
         .quiz__me {
             margin-top: 100px;
+            margin-bottom: 85px;
         }
     }
 }

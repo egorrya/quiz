@@ -40,8 +40,18 @@ var QuizUI = {
     }
   },
 
+  displayIntro: function() {
+    var introHTML = "<h1>Мем-тест</h1>";
+
+    introHTML += '<h2>Пройди этот тест на знания последних мем-тенденций и узнай насколько ты крут</h2>';
+
+    introHTML += '<button id="start" class="quiz__btn"><p>Начать тест</p></button>';
+    
+    this.populateIdWithHTML("quiz", introHTML);
+  },
+
   displayTest: function() {
-    var testHTML = "<h1>Крутой тест</h1>";
+    var testHTML = "<h1>Мем-тест</h1>";
 
     // Display question
 
@@ -68,9 +78,28 @@ var QuizUI = {
 
   displayScore: function() {
     var myWebSite = "https://faynco.github.io";
+    
     var gameOverHTML = "<h1>Game Over</h1>";
     gameOverHTML += "<h2> Твой счет: " + quiz.score + " из " + quiz.questions.length + "</h2>";
-    gameOverHTML += '<h3 id="me" class="quiz__me">Этот тест был разработан <a href=' + myWebSite + '>этим парнем</a> </h3>';
+    
+    switch (quiz.score) {
+      case 7:
+      gameOverHTML += '<h2>Да вы батенька, ЦАРЬ МЕМОВ!</h2>';
+      break;
+      case 6:
+      case 5:
+      case 4:
+      gameOverHTML += '<h2>Неплохо-неплохо, Мужиииик (для феминисток мужик_ца)!</h2>';
+      break;
+      case 3:
+      case 2:
+      gameOverHTML += '<h2>Слабенько, на пересдачу!</h2>';
+      break;
+      default:
+      gameOverHTML += '<h2>Тебе не стоило прогуливать уроки мемологии</h2>';
+    }
+
+    gameOverHTML += '<h3 id="me" class="quiz__me">Этот тест был разработан <a href=' + myWebSite + '>этим парнем</a></h3>';
     this.populateIdWithHTML("quiz", gameOverHTML);
   },
 
@@ -95,15 +124,55 @@ var QuizUI = {
 
 // Create Questions
 var questions = [
-new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА", "НЕ"], "ПОРВУ ЗА ПУТИНА"),
-new Question("Путин Красавчик?", [ "ПОРВУ ЗА ПУТИНА", "НЕ", "НЕT BLYAT"], "ПОРВУ ЗА ПУТИНА"),
+new Question("АЁУ А Как поднять бабла?", [  
+  "Вулкан",
+  "1XBet", 
+  "Азино 777", 
+  "Leon"], "Азино 777"),
+
+new Question("Кто из богов создал вселенную после сильного алкогольного опьянения?", 
+  [ 
+  "Бога нет",
+  "Иисус мать его Христос", 
+  "Пьяный батя", 
+  "Летающий Макаронный Монстр"], "Летающий Макаронный Монстр"),
+
+new Question("... Нэвэльный!", [ 
+  "Блин",
+  "блэт", 
+  "Бляд",
+  "Blut"], "блэт"),
+
+new Question("Из какой страны повар, соль которого, прежде чем попасть в блюдо, попадает на его локоть?", [ 
+  "Из Германии",
+  "Из Турции",
+  "Из Армении",
+  "Из Израиля"], "Из Турции"),
+
+new Question("Да ты пидр епта!", [ 
+  "ДА ДЕТКА ЭТО КАМИНГ АУТ",
+  "Нет, что ты",
+  "А может ты пидор?",
+  "ты што ебонутый"], "А может ты пидор?"),
+
+new Question("Somebody once told me...", [ 
+  "...i'm gorgeous",
+  "...that i'll be a president",
+  "...the world is gonna roll me",
+  "...my arm is too big"], "...the world is gonna roll me"),
+
+new Question("Какой фразы не было на баттле оксимирона с гнойным?", [ 
+  "камон камон",
+  "еее бой",
+  "изи изи",
+  "рил ток"], "камон камон"),
 ];
 
 // Create Quiz
 var quiz = new Quiz(questions);
 
 // Display Quiz
-QuizUI.displayNext();
+QuizUI.displayIntro();
 
 // motion
 
@@ -120,21 +189,14 @@ function end () {
 }
 
 var pixelwave = new PixelWave({
-  canvasTop: 0,    
-  speedIn: .8,
-  speedOut: .9,
   color: '#000000'      
 });
 
-document.getElementById('guess0').addEventListener('click', function() {
+// buttons with jquery except for event listeners
+
+$(document).on('click','#start', function(){
+  QuizUI.displayNext();
+});
+$(document).on('click','button', function(){
   pixelwave.start();
-})
-document.getElementById('guess1').addEventListener('click', function() {
-  pixelwave.start();
-})
-document.getElementById('guess2').addEventListener('click', function() {
-  pixelwave.start();
-})
-document.getElementById('guess3').addEventListener('click', function() {
-  pixelwave.start();
-})
+});
