@@ -491,10 +491,6 @@ template {
   font-family: 'OpenGost Type A TT';
   font-size: 1.4rem;
 }
-.quiz .quiz__btn:hover {
-  color: #fff;
-  background-color: #000;
-}
 .quiz .quiz__progress {
   font-family: 'OpenGost Type A TT';
   font-size: 1.3rem;
@@ -558,6 +554,11 @@ template {
 
   .quiz .quiz__btn p {
     font-size: 1.5rem;
+  }
+
+  .quiz .quiz__btn:hover {
+    color: #fff;
+    background-color: #000;
   }
 
   .quiz .quiz__progress {
