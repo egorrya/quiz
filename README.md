@@ -1,4 +1,4 @@
-# MEME-TEST / Мем-тест
-Мини-тест про актуальные мемы в 2017. 
+# MEME-TEST
+Old project. Test about popular memes in 2017. 
 
-### [Перейти](https://faynco.github.io/quiz/)
+### [Go to](https://egorrya.github.io/quiz/)
