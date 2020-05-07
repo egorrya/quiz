@@ -4,18 +4,18 @@ function Quiz(questions) {
   this.currentQuestionIndex = 0;
 }
 
-Quiz.prototype.guess = function(answer) {
-  if(this.getCurrentQuestion().isCorrectAnswer(answer)) {
+Quiz.prototype.guess = function (answer) {
+  if (this.getCurrentQuestion().isCorrectAnswer(answer)) {
     this.score++;
   }
   this.currentQuestionIndex++;
 };
 
-Quiz.prototype.getCurrentQuestion = function() {
+Quiz.prototype.getCurrentQuestion = function () {
   return this.questions[this.currentQuestionIndex];
 };
 
-Quiz.prototype.hasEnded = function() {
+Quiz.prototype.hasEnded = function () {
   return this.currentQuestionIndex >= this.questions.length;
 };
 
@@ -40,26 +40,31 @@ var QuizUI = {
     }
   },
 
-  displayIntro: function() {
-    var introHTML = "<h1>Мем-тест</h1>";
+  displayIntro: function () {
+    var introHTML = "<h1>Javascript Quiz</h1>";
 
-    introHTML += '<h2>Пройди этот тест на знания последних мем-тенденций и узнай насколько ты крут</h2>';
+    introHTML += "<h2>Pass this quiz about JS</h2>";
 
-    introHTML += '<button id="start" class="quiz__btn"><p>Начать тест</p></button>';
-    
+    introHTML += '<button id="start" class="quiz__btn"><p>GO</p></button>';
+
     this.populateIdWithHTML("quiz", introHTML);
   },
 
-  displayTest: function() {
-    var testHTML = "<h1>Мем-тест</h1>";
+  displayTest: function () {
+    var testHTML = "<h1>Javascript Quiz</h1>";
 
     // Display question
 
-    testHTML += '<h2 id="question">' + quiz.getCurrentQuestion().text + '</h2>';
+    testHTML += '<h2 id="question">' + quiz.getCurrentQuestion().text + "</h2>";
 
     var choices = quiz.getCurrentQuestion().choices;
-    for(var i = 0; i < choices.length; i++) {
-      testHTML += '<button id="guess' + i + '" class="quiz__btn"><p id="choice' + i +'"></p></button>';
+    for (var i = 0; i < choices.length; i++) {
+      testHTML +=
+        '<button id="guess' +
+        i +
+        '" class="quiz__btn"><p id="choice' +
+        i +
+        '"></p></button>';
     }
 
     testHTML += '<p id="progress" class="quiz__progress">Question x of y</p>';
@@ -67,105 +72,133 @@ var QuizUI = {
     this.populateIdWithHTML("quiz", testHTML);
   },
 
-  displayChoices: function() {
+  displayChoices: function () {
     var choices = quiz.getCurrentQuestion().choices;
 
-    for(var i = 0; i < choices.length; i++) {
+    for (var i = 0; i < choices.length; i++) {
       this.populateIdWithHTML("choice" + i, choices[i]);
       this.guessHandler("guess" + i, choices[i]);
     }
   },
 
-  displayScore: function() {
-    var myWebSite = "https://faynco.github.io";
-    
+  displayScore: function () {
+    // var myWebSite = "https://faynco.github.io";
+
     var gameOverHTML = "<h1>Game Over</h1>";
-    gameOverHTML += "<h2> Твой счет: " + quiz.score + " из " + quiz.questions.length + "</h2>";
-    
+    gameOverHTML +=
+      "<h2> Your score: " +
+      quiz.score +
+      " out of " +
+      quiz.questions.length +
+      "</h2>";
+
     switch (quiz.score) {
       case 7:
-      gameOverHTML += '<h2>Да вы батенька, ЦАРЬ МЕМОВ!</h2>';
-      break;
+        gameOverHTML += "<h2>Great!</h2>";
+        break;
       case 6:
       case 5:
       case 4:
-      gameOverHTML += '<h2>Неплохо-неплохо, Мужиииик (для феминисток мужик_ца)!</h2>';
-      break;
+        gameOverHTML += "<h2>Not bad!</h2>";
+        break;
       case 3:
       case 2:
-      gameOverHTML += '<h2>Слабенько, на пересдачу!</h2>';
-      break;
+        gameOverHTML += "<h2>Bad!</h2>";
+        break;
       default:
-      gameOverHTML += '<h2>Тебе не стоило прогуливать уроки мемологии</h2>';
+        gameOverHTML += "<h2>Just try again!</h2>";
     }
 
-    gameOverHTML += '<h3 id="me" class="quiz__me">Этот тест был разработан <a href=' + myWebSite + '>этим парнем</a></h3>';
-    this.populateIdWithHTML("quiz", gameOverHTML);
+    gameOverHTML += this.populateIdWithHTML("quiz", gameOverHTML);
   },
 
-  displayProgress: function() {
+  displayProgress: function () {
     var currentQuestionNumber = quiz.currentQuestionIndex + 1;
-    this.populateIdWithHTML("progress", "Вопрос " + currentQuestionNumber + " из " + quiz.questions.length);
+    this.populateIdWithHTML(
+      "progress",
+      "Question " + currentQuestionNumber + " out of " + quiz.questions.length
+    );
   },
 
-  populateIdWithHTML: function(id, text) {
+  populateIdWithHTML: function (id, text) {
     var element = document.getElementById(id);
     element.innerHTML = text;
   },
 
-  guessHandler: function(id, guess) {
+  guessHandler: function (id, guess) {
     var button = document.getElementById(id);
-    button.onclick = function() {
+    button.onclick = function () {
       quiz.guess(guess);
       QuizUI.displayNext();
-    }
-  }
+    };
+  },
 };
 
 // Create Questions
 var questions = [
-new Question("АЁУ А Как поднять бабла?", [  
-  "Вулкан",
-  "1XBet", 
-  "Азино 777", 
-  "Leon"], "Азино 777"),
+  new Question(
+    "Inside which HTML element do we put the JavaScript?",
+    ["< js >", "< javascript >", "< script >", "< scripting >"],
+    "< script >"
+  ),
 
-new Question("Кто из богов создал вселенную после сильного алкогольного опьянения?", 
-  [ 
-  "Бога нет",
-  "Иисус мать его Христос", 
-  "Пьяный батя", 
-  "Летающий Макаронный Монстр"], "Летающий Макаронный Монстр"),
+  new Question(
+    `What is the correct JavaScript syntax to change the content of the HTML element below?
 
-new Question("... Нэвэльный!", [ 
-  "Блин",
-  "блэт", 
-  "Бляд",
-  "Blut"], "блэт"),
+    < p id="demo" >This is a demonstration.< /p >`,
+    [
+      'document.getElementByName("p").innerHTML = "Hello World!";',
+      'document.getElement("p").innerHTML = "Hello World!";',
+      'document.getElementById("demo").innerHTML = "Hello World!";',
+      '#demo.innerHTML = "Hello World!";',
+    ],
+    'document.getElementById("demo").innerHTML = "Hello World!";'
+  ),
 
-new Question("Из какой страны повар, соль которого, прежде чем попасть в блюдо, попадает на его локоть?", [ 
-  "Из Германии",
-  "Из Турции",
-  "Из Армении",
-  "Из Израиля"], "Из Турции"),
+  new Question(
+    "Where is the correct place to insert a JavaScript?",
+    ["In the < body >", "In the < head >", "Both correct", "Both incorrect"],
+    "Both correct"
+  ),
 
-new Question("Да ты пидр епта!", [ 
-  "ДА ДЕТКА ЭТО КАМИНГ АУТ",
-  "Нет, что ты",
-  "А может ты пидор?",
-  "ты што ебонутый"], "А может ты пидор?"),
+  new Question(
+    'What is the correct syntax for referring to an external script called "xxx.js"?',
+    [
+      '< script name="xxx.js" >',
+      '< script href="xxx.js" >',
+      '< script src="xxx.js" >',
+      '< script link="xxx.js" >',
+    ],
+    ' <script src="xxx.js" >'
+  ),
 
-new Question("Somebody once told me...", [ 
-  "...i'm gorgeous",
-  "...that i'll be a president",
-  "...the world is gonna roll me",
-  "...my arm is too big"], "...the world is gonna roll me"),
+  new Question(
+    'How do you write "Hello World" in an alert box?',
+    [
+      'msgBox("Hello World");',
+      'alertBox("Hello World");',
+      'alert("Hello World");',
+      ' msg("Hello World");',
+    ],
+    'alert("Hello World");'
+  ),
 
-new Question("Какой фразы не было на баттле оксимирона с гнойным?", [ 
-  "камон камон",
-  "еее бой",
-  "изи изи",
-  "рил ток"], "камон камон"),
+  new Question(
+    "How do you create a function in JavaScript?",
+    [
+      "function:myFunction()",
+      "function myFunction()",
+      "function = myFunction()",
+      "export = myFunction()",
+    ],
+    "function myFunction()"
+  ),
+
+  new Question(
+    'How do you call a function named "myFunction"?',
+    ["myFunction()", "call myFunction()", "call myFunction", "myFunction"],
+    "myFunction()"
+  ),
 ];
 
 // Create Quiz
@@ -176,27 +209,27 @@ QuizUI.displayIntro();
 
 // motion
 
-function start () {
-  console.log('start');
+function start() {
+  console.log("start");
 }
 
-function middle () {
-  console.log('middle');
+function middle() {
+  console.log("middle");
 }
 
-function end () {
-  console.log('end');     
+function end() {
+  console.log("end");
 }
 
 var pixelwave = new PixelWave({
-  color: '#000000'      
+  color: "#000000",
 });
 
 // buttons with jquery except for event listeners
 
-$(document).on('click','#start', function(){
+$(document).on("click", "#start", function () {
   QuizUI.displayNext();
 });
-$(document).on('click','button', function(){
+$(document).on("click", "button", function () {
   pixelwave.start();
 });
